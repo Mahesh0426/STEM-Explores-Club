@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - STEM Explorers Club</title>
+    <meta
+      name="description"
+      content="View photos and videos from our exciting STEM programs and see our young explorers in action!"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <h1>🔬 STEM Explorers Club</h1>
+          </div>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="programs.html" class="nav-link">Programs</a></li>
+            <li>
+              <a href="gallery.html" class="nav-link active" aria-current="page"
+                >Gallery</a
+              >
+            </li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+          <div
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Gallery</h1>
+          <p>See our young scientists, engineers, and innovators in action!</p>
+        </div>
+      </section>
+
+      <section class="gallery-filters">
+        <div class="container">
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="robotics">Robotics</button>
+            <button class="filter-btn" data-filter="chemistry">
+              Chemistry
+            </button>
+            <button class="filter-btn" data-filter="engineering">
+              Engineering
+            </button>
+            <button class="filter-btn" data-filter="math">Math</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-grid">
+        <div class="container">
+          <div class="gallery-container">
+            <!-- Robotics Images -->
+            <div class="gallery-item" data-category="robotics">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Students programming colorful robots with laptops and building blocks"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Robotics Workshop</h3>
+                <p>Building and programming robots</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="robotics">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Children testing their robot creations on an obstacle course"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Robot Testing</h3>
+                <p>Testing robots on obstacle course</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="robotics">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Young students collaborating on robot design with instructor guidance"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Team Collaboration</h3>
+                <p>Working together on robot design</p>
+              </div>
+            </div>
+
+            <!-- Chemistry Images -->
+            <div class="gallery-item" data-category="chemistry">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Kids wearing safety goggles conducting colorful chemical experiments"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Chemistry Experiments</h3>
+                <p>Safe and exciting chemical reactions</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="chemistry">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Students observing bubbling beakers and colorful solutions in test tubes"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Lab Discoveries</h3>
+                <p>Exploring chemical properties</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="chemistry">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Children recording observations in lab notebooks during chemistry class"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Scientific Method</h3>
+                <p>Recording experimental observations</p>
+              </div>
+            </div>
+
+            <!-- Engineering Images -->
+            <div class="gallery-item" data-category="engineering">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Students building tall towers with various construction materials"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Tower Challenge</h3>
+                <p>Building the tallest stable tower</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="engineering">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Children designing and testing bridge structures with weights"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Bridge Building</h3>
+                <p>Testing bridge strength and design</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="engineering">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Young engineers working with 3D design software on tablets"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>3D Design</h3>
+                <p>Creating digital prototypes</p>
+              </div>
+            </div>
+
+            <!-- Math Images -->
+            <div class="gallery-item" data-category="math">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Students solving puzzles and working with geometric shapes and patterns"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Math Puzzles</h3>
+                <p>Solving logic and geometry puzzles</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="math">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Children using colorful manipulatives and calculators for math activities"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Hands-on Math</h3>
+                <p>Learning with manipulatives</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="math">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Students presenting mathematical solutions on a whiteboard to classmates"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Math Presentations</h3>
+                <p>Sharing problem-solving strategies</p>
+              </div>
+            </div>
+
+            <!-- Mixed Activities -->
+            <div class="gallery-item" data-category="robotics engineering">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Children celebrating successful completion of STEM projects with certificates"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Achievement Celebration</h3>
+                <p>Proud graduates with certificates</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="chemistry engineering">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Students showcasing their projects at science fair with parents watching"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>Science Fair</h3>
+                <p>Showcasing student projects</p>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="robotics chemistry math">
+              <img
+                src="/placeholder.svg?height=300&width=400"
+                alt="Group photo of happy students and instructors in the STEM lab"
+                class="gallery-thumbnail"
+              />
+              <div class="gallery-overlay">
+                <h3>STEM Family</h3>
+                <p>Our amazing students and instructors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="video-section">
+        <div class="container">
+          <h2>Watch Our Students in Action</h2>
+          <div class="video-grid">
+            <div class="video-item">
+              <div class="video-placeholder">
+                <div class="play-button" aria-label="Play video">▶️</div>
+                <img
+                  src="/placeholder.svg?height=200&width=350"
+                  alt="Video thumbnail showing students working on robotics project"
+                />
+              </div>
+              <h3>Robotics in Action</h3>
+              <p>Watch our students program and test their robots</p>
+            </div>
+            <div class="video-item">
+              <div class="video-placeholder">
+                <div class="play-button" aria-label="Play video">▶️</div>
+                <img
+                  src="/placeholder.svg?height=200&width=350"
+                  alt="Video thumbnail showing exciting chemistry experiments with colorful reactions"
+                />
+              </div>
+              <h3>Chemistry Magic</h3>
+              <p>Amazing chemical reactions and experiments</p>
+            </div>
+            <div class="video-item">
+              <div class="video-placeholder">
+                <div class="play-button" aria-label="Play video">▶️</div>
+                <img
+                  src="/placeholder.svg?height=200&width=350"
+                  alt="Video thumbnail showing students building and testing engineering structures"
+                />
+              </div>
+              <h3>Engineering Challenges</h3>
+              <p>Building, testing, and improving designs</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal for enlarged images -->
+    <div
+      id="imageModal"
+      class="modal"
+      role="dialog"
+      aria-labelledby="modalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <span class="close" aria-label="Close modal">&times;</span>
+        <img id="modalImage" src="/placeholder.svg" alt="" />
+        <div id="modalCaption"></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>STEM Explorers Club</h3>
+            <p>Inspiring young minds through hands-on STEM education.</p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="programs.html">Programs</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact Info</h4>
+            <p>📧 info@stemexplorers.com</p>
+            <p>📞 (555) 123-STEM</p>
+            <p>📍 123 Science Street, Learning City</p>
+          </div>
+          <div class="footer-section">
+            <h4>Hours</h4>
+            <p>Monday - Friday: 3:00 PM - 7:00 PM</p>
+            <p>Saturday: 9:00 AM - 5:00 PM</p>
+            <p>Sunday: 10:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 STEM Explorers Club. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

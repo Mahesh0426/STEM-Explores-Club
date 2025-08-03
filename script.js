@@ -18,3 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+//play video
+document.querySelectorAll(".play-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const video = button.parentElement.querySelector("video");
+    if (video) {
+      video.play();
+      button.style.display = "none"; // hide play button
+    }
+  });
+});

@@ -514,8 +514,66 @@ a:hover {
 
 /* ------About Page End--------------- */
 
-/* Gallary Page */
+/* --------Programs Detail Page------- */
+.programs-detail {
+  padding: 2rem 0;
+}
+.program-detail {
+  margin-bottom: 4rem;
+  padding: 3rem 0;
+  border-bottom: 2px solid #f1f5f9;
+}
+.program-detail:last-child {
+  border-bottom: none;
+}
+.program-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.program-content.reverse {
+  direction: rtl;
+}
+.program-content.reverse > * {
+  direction: ltr;
+}
+.program-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.program-meta span {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.program-text h3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #1e40af;
+}
+.program-text ul {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+.program-text li {
+  margin-bottom: 0.5rem;
+}
+.program-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
 
+/* --------Programs Detail Page End------- */
+
+/* Gallary Page */
 .gallery-filters {
   padding: 2rem 0;
   text-align: center;
@@ -750,7 +808,9 @@ a:hover {
     opacity: 1;
   }
 }
-/* footer */
+/* -------------galary Page End----------- */
+
+/* ------footer------------ */
 footer {
   background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
   color: white;

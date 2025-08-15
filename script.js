@@ -71,3 +71,102 @@ document.querySelectorAll(".play-button").forEach((button) => {
     }
   });
 });
+
+function showError(id, msg) {
+  const el = document.getElementById(id + "Error");
+  if (el) el.textContent = msg;
+}
+function clearErrors() {
+  document
+    .querySelectorAll(".error-message")
+    .forEach((e) => (e.textContent = ""));
+}
+function isValidEmail(e) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+}
+function isValidPhone(p) {
+  return /^\d{10,15}$/.test(p.replace(/\D/g, ""));
+}
+
+// Contact Form Validation and Submission
+const contactForm = document.getElementById("contactForm");
+const formSuccess = document.getElementById("formSuccess");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Clear previous errors
+    clearErrors();
+
+    // Validate form
+    let isValid = true;
+
+    // Required field validation
+    const requiredFields = [
+      { id: "parentName", message: "Parent/Guardian name is required" },
+      { id: "childName", message: "Child's name is required" },
+      { id: "childAge", message: "Please select child's age" },
+      { id: "email", message: "Email address is required" },
+      { id: "inquiryType", message: "Please select inquiry type" },
+      { id: "message", message: "Message is required" },
+      { id: "privacy", message: "You must agree to the privacy policy" },
+    ];
+
+    requiredFields.forEach((field) => {
+      const element = document.getElementById(field.id);
+      const value =
+        element.type === "checkbox" ? element.checked : element.value.trim();
+
+      if (!value) {
+        showError(field.id, field.message);
+        isValid = false;
+      }
+    });
+
+    // Email validation
+    const email = document.getElementById("email").value.trim();
+    if (email && !isValidEmail(email)) {
+      showError("email", "Please enter a valid email address");
+      isValid = false;
+    }
+
+    // Phone validation (if provided)
+    const phone = document.getElementById("phone").value.trim();
+    if (phone && !isValidPhone(phone)) {
+      showError("phone", "Please enter a valid phone number");
+      isValid = false;
+    }
+
+    // Message length validation
+    const message = document.getElementById("message").value.trim();
+    if (message && message.length < 10) {
+      showError("message", "Message must be at least 10 characters long");
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Simulate form submission
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+
+      submitButton.textContent = "Sending...";
+      submitButton.disabled = true;
+
+      setTimeout(() => {
+        contactForm.style.display = "none";
+        formSuccess.style.display = "block";
+
+        // Scroll to success message
+        formSuccess.scrollIntoView({ behavior: "smooth" });
+
+        // Reset form after showing success
+        setTimeout(() => {
+          contactForm.reset();
+          submitButton.textContent = originalText;
+          submitButton.disabled = false;
+        }, 3000);
+      }, 2000);
+    }
+  });
+}

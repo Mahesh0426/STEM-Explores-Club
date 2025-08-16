@@ -403,7 +403,7 @@ a:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/*  about page --- mission-values section */
+/*  mission-values section */
 .mission-values {
   padding: 4rem 0;
   background-color: #f8fafc;
@@ -443,7 +443,7 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
-/*  About Page --- our Team Section */
+/*  our Team Section */
 .team {
   padding: 4rem 0;
 }
@@ -490,7 +490,7 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-/*  About Page --- our achievement section */
+/*  our achievement section */
 .achievements {
   padding: 4rem 0;
   background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
@@ -647,6 +647,7 @@ a:hover {
 /* --------Programs Page End------- */
 
 /* --------Gallary Page Start ------- */
+/* gallery section */
 .gallery-filters {
   padding: 2rem 0;
   text-align: center;
@@ -735,6 +736,7 @@ a:hover {
   font-size: 0.9rem;
   opacity: 0.9;
 }
+
 /* Video Section */
 .video-section {
   padding: 4rem 1rem;
@@ -1171,6 +1173,7 @@ footer {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .social-links a {
@@ -1352,6 +1355,16 @@ footer {
   .btn-large {
     padding: 1rem 2rem;
     font-size: 1rem;
+  }
+
+  .social-links {
+    gap: 0.5rem;
+  }
+
+  .social-link {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
   }
 
   .feature-card,

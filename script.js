@@ -72,101 +72,124 @@ document.querySelectorAll(".play-button").forEach((button) => {
   });
 });
 
+/* ----------  validation helpers  ---------- */
 function showError(id, msg) {
-  const el = document.getElementById(id + "Error");
-  if (el) el.textContent = msg;
+  const errorElement = document.getElementById(id + "Error");
+  if (errorElement) errorElement.textContent = msg;
 }
+//function to clear message
 function clearErrors() {
   document
     .querySelectorAll(".error-message")
-    .forEach((e) => (e.textContent = ""));
+    .forEach((error) => (error.textContent = ""));
 }
+
+//function to validate email
 function isValidEmail(e) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 }
+
+//function to validate phone
 function isValidPhone(p) {
   return /^\d{10,15}$/.test(p.replace(/\D/g, ""));
 }
 
-// Contact Form Validation and Submission
+/* ----------  Web3Forms submission  ---------- */
 const contactForm = document.getElementById("contactForm");
 const formSuccess = document.getElementById("formSuccess");
 
 if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    // Clear previous errors
     clearErrors();
 
-    // Validate form
     let isValid = true;
 
-    // Required field validation
-    const requiredFields = [
-      { id: "parentName", message: "Parent/Guardian name is required" },
-      { id: "childName", message: "Child's name is required" },
-      { id: "childAge", message: "Please select child's age" },
-      { id: "email", message: "Email address is required" },
-      { id: "inquiryType", message: "Please select inquiry type" },
-      { id: "message", message: "Message is required" },
-      { id: "privacy", message: "You must agree to the privacy policy" },
+    /* ---- basic validation  ---- */
+    const required = [
+      {
+        id: "parentName",
+        name: "parentName",
+        msg: "Parent/Guardian name is required",
+      },
+      { id: "childName", name: "childName", msg: "Child's name is required" },
+      { id: "childAge", name: "childAge", msg: "Please select child's age" },
+      { id: "email", name: "email", msg: "Email address is required" },
+      {
+        id: "inquiryType",
+        name: "inquiryType",
+        msg: "Please select inquiry type",
+      },
+      { id: "message", name: "message", msg: "Message is required" },
+      {
+        id: "privacy",
+        name: "privacy",
+        msg: "You must agree to the privacy policy",
+      },
     ];
 
-    requiredFields.forEach((field) => {
+    required.forEach((field) => {
       const element = document.getElementById(field.id);
       const value =
         element.type === "checkbox" ? element.checked : element.value.trim();
-
       if (!value) {
-        showError(field.id, field.message);
+        showError(field.id, field.msg);
         isValid = false;
       }
     });
 
-    // Email validation
     const email = document.getElementById("email").value.trim();
     if (email && !isValidEmail(email)) {
       showError("email", "Please enter a valid email address");
       isValid = false;
     }
 
-    // Phone validation (if provided)
     const phone = document.getElementById("phone").value.trim();
     if (phone && !isValidPhone(phone)) {
       showError("phone", "Please enter a valid phone number");
       isValid = false;
     }
 
-    // Message length validation
     const message = document.getElementById("message").value.trim();
     if (message && message.length < 10) {
-      showError("message", "Message must be at least 10 characters long");
+      showError("message", "Message must be at least 10 characters");
       isValid = false;
     }
 
-    if (isValid) {
-      // Simulate form submission
-      const submitButton = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitButton.textContent;
+    if (!isValid) return;
 
-      submitButton.textContent = "Sending...";
-      submitButton.disabled = true;
+    /* ---- send to Web3Forms ---- */
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
 
-      setTimeout(() => {
+    btn.textContent = "Sending…";
+    btn.disabled = true;
+
+    const formData = new FormData(contactForm);
+    formData.append("access_key", "3557ba0f-c17f-470e-9314-19932e23bca3");
+    formData.append("subject", "New inquiry from STEM Explorers Club Website");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await res.json();
+
+      if (res.ok && result.success) {
         contactForm.style.display = "none";
         formSuccess.style.display = "block";
-
-        // Scroll to success message
         formSuccess.scrollIntoView({ behavior: "smooth" });
-
-        // Reset form after showing success
-        setTimeout(() => {
-          contactForm.reset();
-          submitButton.textContent = originalText;
-          submitButton.disabled = false;
-        }, 3000);
-      }, 2000);
+      } else {
+        alert(result.message || "Error sending message");
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    } catch (err) {
+      alert("Network error. Please try again.");
+      console.error(err);
+      btn.textContent = originalText;
+      btn.disabled = false;
     }
   });
 }

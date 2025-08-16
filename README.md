@@ -31,7 +31,7 @@ Welcome to the STEM Explorers Club website! This is a modern, responsive web app
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/Mahesh0426/STEM-Explores-Club.git
    ```
 2. **Navigate to the project directory:**
    ```bash
